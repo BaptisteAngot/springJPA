@@ -21,23 +21,12 @@ public class JpaApplication {
     @Bean
     public CommandLineRunner demo(UserRepository userRepository, UserService userService) {
         return (args -> {
-            userService.getUserByEmail("test","motdepasse");
-            userRepository.save(new User("Jack","Toto","titi","password"));
-            userRepository.save(new User("Jack","Toto","titi","password"));
-            userRepository.save(new User("David","Guetta","titi","password"));
+            userService.getUserByEmail("test@test.com","motdepasse");
             userRepository.save(new User("email","Toto","toto@titi.com","password"));
 
             for (User user: userRepository.findAll()) {
                 System.out.println(user.toString());
             }
-            System.out.println("");
-
-            User user = userRepository.findUserById(1L);
-            System.out.println(user);
-            System.out.println("");
-
-            User david = userRepository.findByFirstname("David");
-            System.out.println("Voici David :" + david.toString());
             System.out.println("");
 
             Optional<User> email = userRepository.getUserByEmail("toto@titi.com");

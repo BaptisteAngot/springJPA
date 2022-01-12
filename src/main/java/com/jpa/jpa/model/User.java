@@ -1,24 +1,23 @@
 package com.jpa.jpa.model;
 
 import javax.persistence.*;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotNull;
 
 @Entity
 public class User {
     @Id
-    @Column(name = "id", nullable = false)
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    @Column(name = "firstname", nullable = true)
     private String firstname;
 
-    @Column(name = "lastname", nullable = true)
     private String lastname;
 
-    @Column(name = "email", nullable = false)
+    @Email
+    @NotNull
     private String email;
 
-    @Column(name = "password", nullable = false)
     private String password;
 
     public User( String firstname, String lastname, String email, String password) {
