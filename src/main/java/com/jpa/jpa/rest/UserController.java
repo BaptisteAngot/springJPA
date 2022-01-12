@@ -19,14 +19,12 @@ public class UserController {
 
     @GetMapping("/users")
     public ResponseEntity<List<User>> getAllUsers() {
-        List<User> userList = userService.getAllUser();
-        return new ResponseEntity<List<User>>(userList, HttpStatus.OK);
+        return new ResponseEntity<List<User>>(userService.getAllUser(), HttpStatus.OK);
     }
 
     @GetMapping("/user/{id}")
     public ResponseEntity<User> getUserById(@PathVariable Long id){
-        User user = userService.getUserById(id);
-        return new ResponseEntity<User>(user, HttpStatus.OK);
+        return new ResponseEntity<User>(userService.getUserById(id), HttpStatus.OK);
     }
 
     @PostMapping("/user")
